@@ -4,8 +4,10 @@
   "description": "A clone of the Postman chrome extension.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon sandbox-server/index",
-    "test": "mocha sandbox-server/test/sandbox_tests.js"
+    "run sandbox-server": "nodemon sandbox-server/index",
+    "run postalicious": "nodemon postalicious/index",
+    "test": "mocha sandbox-server/test/sandbox_tests.js",
+    "testTwo:" : "mocha postalicious/test/post_tests.js"
   },
   "repository": {
     "type": "git",
@@ -22,8 +24,9 @@
     "morgan": "^1.7.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "mocha": "^3.2.0",
-    "chai": "^3.5.0"
+    "pg-promise": "^5.6.4"
   }
 }
