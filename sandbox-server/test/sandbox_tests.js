@@ -7,39 +7,32 @@ chai.use(chaiHttp)
 
 describe('sandbox-server', function(){
 
-  context.only('homepage, onload', function(){
+  context('homepage, onload', function(){
 
     it('Should respond with a status code of 200', function(done){
       chai.request(app)
       .get('/')
       .end(function(err, res){
         expect(res).to.have.status(200)
+        expect(res.text).to.equal('Welcome to Sandbox!')
+        expect(res).to.have.header('content-type', 'text/plain; charset=utf-8')
         done()
       })
     })
-    it('Should have a Content-Type of text/plain', function(res){
-      expect(res).to.have.header('content-type', 'text/plain')
-    })
-    it('Should have a body response that contains the string "Welcome to Sandbox!"', function(res){
-      expect(res).to.have.header('Welcome to Sandbox!')
-    })
   })
-  context('Doodads search', function(){
+  
+  context('Doodads search', function(done){
 
     it('Should respond with a status code of 200', function(done){
       chai.request(app)
-      .get('/')
+      .get('/search')
+      .query({'q':'doodads'})
       .end(function(err, res){
         expect(res).to.have.status(200)
+        expect(res.text).to.equal('You searched for: \'doodads\'')
+        expect(res).to.have.header('content-type', 'text/plain; charset=utf-8')
         done()
       })
-    })
-  })
-    it('Should have a Content-Type of text/plain', function(res){
-      expect(res).to.have.header('content-type', 'text/plain')
-    })
-    it('Should have a body response that contains the string "You searched for: doodads"', function(res){
-      expect(res).to.have.header('You searched for: doodads')
     })
   })
 
@@ -57,7 +50,7 @@ describe('sandbox-server', function(){
       expect(res).to.have.header('content-type', 'text/plain')
     })
     it('Should have a body response that contains the string "You did not provide a search query term :("', function(){
-      
+
     })
   })
 
@@ -183,3 +176,4 @@ describe('sandbox-server', function(){
       })
     })
   })
+})
