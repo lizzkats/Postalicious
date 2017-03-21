@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "run sandbox-server": "nodemon sandbox-server/index",
-    "run postalicious": "nodemon postalicious/index",
+    "pl": "nodemon postalicious/index",
     "test": "mocha sandbox-server/test/sandbox_tests.js",
     "testTwo:" : "mocha postalicious/test/post_tests.js"
   },
