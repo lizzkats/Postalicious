@@ -5,142 +5,181 @@ const app = require('../index')
 
 chai.use(chaiHttp)
 
-describe('sandbox-server', () => {
+describe('sandbox-server', function(){
 
-  context('homepage, onload', () => {
+  context.only('homepage, onload', function(){
 
-    it('Should respond with a status code of 200', (done) => {
+    it('Should respond with a status code of 200', function(done){
       chai.request(app)
       .get('/')
-      .end((err, res) => {
+      .end(function(err, res){
         expect(res).to.have.status(200)
-        expect(res.text).to.equal('Welcome to Sandbox!')
-        expect(res).to.have.header('content-type', 'text/plain; charset=utf-8')
+        done()
+      })
+    })
+    it('Should have a Content-Type of text/plain', function(res){
+      expect(res).to.have.header('content-type', 'text/plain')
+    })
+    it('Should have a body response that contains the string "Welcome to Sandbox!"', function(res){
+      expect(res).to.have.header('Welcome to Sandbox!')
+    })
+  })
+  context('Doodads search', function(){
+
+    it('Should respond with a status code of 200', function(done){
+      chai.request(app)
+      .get('/')
+      .end(function(err, res){
+        expect(res).to.have.status(200)
         done()
       })
     })
   })
-
-  context('Doodads search', (done) => {
-
-    it('Should respond with a status code of 200', (done) => {
-      chai.request(app)
-      .get('/search')
-      .query({'q':'doodads'})
-      .end((err, res) => {
-        expect(res).to.have.status(200)
-        expect(res.text).to.equal('You searched for: \'doodads\'')
-        expect(res).to.have.header('content-type', 'text/plain; charset=utf-8')
-        done()
-      })
+    it('Should have a Content-Type of text/plain', function(res){
+      expect(res).to.have.header('content-type', 'text/plain')
+    })
+    it('Should have a body response that contains the string "You searched for: doodads"', function(res){
+      expect(res).to.have.header('You searched for: doodads')
     })
   })
 
-  context('Bad request response', () => {
+  context('Bad request response', function(){
 
-    it('Should respond with a status code of 400', (done) => {
+    it('Should respond with a status code of 400', function(done){
       chai.request(app)
-      .get('/search')
-      .end((err, res) => {
+      .get('/')
+      .end(function(err, res){
         expect(res).to.have.status(400)
-        expect(res.text).to.equal('You didn\'t provide a search query term :(')
-        expect(res).to.have.header('content-type', 'text/plain; charset=utf-8')
         done()
       })
     })
+    it('Should have a Content-Type of text/plain', function(){
+      expect(res).to.have.header('content-type', 'text/plain')
+    })
+    it('Should have a body response that contains the string "You did not provide a search query term :("', function(){
+
+    })
   })
 
-  context('Flying car post', () => {
+  context('Flying car post', function(){
 
-    it('Should respond with a status code of 201', (done) => {
+    it('Should respond with a status code of 201', function(done){
       chai.request(app)
-      .post('/things')
-      .send({'New thing created': 'flying car'})
-      .end((err, res) => {
+      .get('/')
+      .end(function(err, res){
         expect(res).to.have.status(201)
-        expect(res.text).to.equal('New thing created: flying car!')
-        expect(res).to.have.header('content-type', 'text/plain; charset=utf-8')
         done()
       })
     })
+    it('Should have a Content-Type of text/plain', function(){
+      expect(res).to.have.header('content-type', 'text/plain')
+    })
+    it('Should have a body response that contains the string "New thing created: Flying car"', function(){
+
+    })
   })
 
-  context('Get some file', () => {
+  context('Get some file', function(){
 
-    it('Should respond with a status code of 200', (done) => {
+    it('Should respond with a status code of 200', function(done){
       chai.request(app)
-      .get('/somefile')
-      .end((err, res) => {
+      .get('/')
+      .end(function(err, res){
         expect(res).to.have.status(200)
-        expect(res.text).to.equal('<!DOCTYPE html><html><body>This is an HTML file</body></html>')
-        expect(res).to.have.header('content-type', 'text/html; charset=utf-8')
         done()
       })
     })
+    it('Should have a Content-Type of text/plain', function(){
+      expect(res).to.have.header('content-type', 'text/plain')
+    })
+    it('Should have a body response that contains the string "This is a plain text file"', function(){
+
+    })
   })
 
-  context('Get json data', () => {
+  context('Get html/text', function(){
 
-    it('Should respond with a status code of 200', (done) => {
+    it('Should respond with a status code of 200', function(done){
       chai.request(app)
-      .get('/myjsondata')
-      .set('accept', 'application/json')
-      .end((err, res) => {
+      .get('/')
+      .end(function(err, res){
         expect(res).to.have.status(200)
-        expect(res.text).to.equal('{"title":"some JSON data"}')
-        expect(res).to.have.header('content-type', 'application/json; charset=utf-8')
+        done()
+      })
+    })
+    it('Should have a Content-Type of html/text', function(){
+      expect(res).to.have.header('content-type', 'html/text')
+    })
+    it('Should have a body response that contains the string "<!DOCTYPE html><html><body>This is an HTML file</body></html>"', function(){
+
+    })
+  })
+
+  context('Get json data', function(){
+
+    it('Should respond with a status code of 200', function(done){
+      chai.request(app)
+      .get('/')
+      .end(function(err, res){
+        expect(res).to.have.status(200)
+        done()
+      })
+    })
+    it('Should have a Content-Type of application/json', function(){
+      expect(res).to.have.header('content-type', 'application/json')
+    })
+    it('Should have a body response that contains the string "{title: some json data}"', function(){
+
+    })
+  })
+
+  context('Get old page', function(){
+
+    it('Should respond with a status code of 301', function(done){
+      chai.request(app)
+      .get('/')
+      .end(function(err, res){
+        expect(res).to.have.status(301)
+        done()
+      })
+    })
+    it('Should contain a location header set localhost:3000/webpage', function(){
+
+    })
+  })
+
+  context('Post admin only', function(){
+
+    it('Should respond with a status code of 403', function(done){
+      chai.request(app)
+      .get('/')
+      .end(function(err, res){
+        expect(res).to.have.status(403)
         done()
       })
     })
   })
 
-  context('Get old page', () => {
+  context('Not a page', function(){
 
-    it('Should respond with a status code of 301', (done) => {
+    it('Should respond with a status code of 404', function(done){
       chai.request(app)
-      .get('/old-page')
-      .end((err, res) => {
-        expect(res.statusCode).to.eql(301)
-        expect(res.headers["content-location"]).to.equal('http://localhost:3000/newpage')
+      .get('/')
+      .end(function(err, res){
+        expect(res).to.have.status(404)
         done()
       })
     })
   })
 
-  context('Post admin only', () => {
+  context('Server error', function(){
 
-    it('Should respond with a status code of 403', (done) => {
+    it('Should respond with a status code of 500', function(done){
       chai.request(app)
-      .post('/admin-only')
-      .send({'stuff': 'all'})
-      .end((err, res) => {
-        expect(res.statusCode).to.eql(403)
-        done()
-      })
-    })
-  })
-
-  context('Not a page', () => {
-
-    it('Should respond with a status code of 404', (done) => {
-      chai.request(app)
-      .get('/not-a-page')
-      .end((err, res) => {
-        expect(res.statusCode).to.eql(404)
-        done()
-      })
-    })
-  })
-
-  context.only('Server error', () => {
-
-    it('Should respond with a status code of 500', (done) => {
-      chai.request(app)
-      .get('/server-error')
-      .end((err, res) => {
+      .get('/')
+      .end(function(err, res){
         expect(res).to.have.status(500)
         done()
       })
     })
   })
-})
