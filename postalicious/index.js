@@ -5,6 +5,11 @@ const path = require('path')
 const port = process.env.PORT || 3001
 const logger = require('morgan')
 
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'html')
+
+server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({extended: true}))
 server.use(logger("combined"))
 server.use(express.static(path.join(__dirname, 'public')))
 
