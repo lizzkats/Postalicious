@@ -18,7 +18,7 @@ function construct(event) {
   // headers.append(keyHeader1, valueHeader1)
   console.log('keyheader', valueHeader1, keyHeader1);
   headers.append(keyHeader1, valueHeader1)
-  console.log(headers.get('content-type'), '=======', headers.headers);
+  console.log(headers.get('Accept'), '=======', headers.headers);
   event.preventDefault()
   let url = ''
   url = host + '?'
@@ -29,6 +29,12 @@ function construct(event) {
   }
   url = url.substring(0, url.length - 1)
   console.log('url=====', url)
+
+  fetch(url, headers)
+    .then(function(response){
+      console.log('made it',response)
+    })
+
   document.getElementById("request_content").innerText = method + ' ' + protocol
   document.getElementById("request_content2").innerText = url
   // document.getElementById("request_content3").innerText = headersArray
