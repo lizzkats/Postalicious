@@ -1,35 +1,35 @@
-// const pgp = require('pg-promise')()
-// const db = pgp({thing: 'sandbox'})
-
-// const buildRequest = (data) => {
-//   let something = data
-//   // console.log(data);
-//   return db.any(something)
-// }
-
 //search uriencoded
 //use new header
 //search fetch
 //construct url
+const protocol = 'http/1.1'
+const method = document.getElementsByClassName("method-input")[0].value
+const docKeyLength = document.getElementsByClassName("key").length
+const docValLength = document.getElementsByClassName("value").length
+const headerOptions = document.getElementsByClassName('daheaders')
+const headerValue = document.getElementsByClassName('select')
+
+const headers = new Headers()
 
 function construct(event) {
-  event.preventDefault()
-  const method = document.getElementsByClassName("method-input")[0].value
   const host = document.getElementsByClassName("host-input")[0].value
-  const queryParamArray = []
-  const docKeyLength = document.getElementsByClassName("key").length
-  const headersArray = []
-  const docValLength = document.getElementsByClassName("value").length
-  for (var i = 0; i < docKeyLength; i++) {
-    queryParamArray.push(document.getElementsByClassName("key")[i].value)
+  const keyHeader1 = document.getElementById('header-key1').value
+  const valueHeader1 = document.getElementById('header-value1').value
+  // headers.append(keyHeader1, valueHeader1)
+  console.log('keyheader', valueHeader1, keyHeader1);
+  headers.append(keyHeader1, valueHeader1)
+  console.log(headers.get('content-type'), '=======', headers.headers);
+  event.preventDefault()
+  let url = ''
+  url = host + '?'
+  for (var i = 0; i < docKeyLength - 1; i++) {
+    if(document.getElementsByClassName("key")[i].value.length !== 0){
+      url += document.getElementsByClassName("key")[i].value + '=' + document.getElementsByClassName("value")[i].value + '&'
+    }
   }
-  for (var i = 0; i < docValLength; i++) {
-    headersArray.push(document.getElementsByClassName("value")[i].value)
-  }
-  console.log(method);
-  document.getElementById("request_content").innerText = method + ' ' + host
-  document.getElementById("request_content2").innerText = queryParamArray
-  document.getElementById("request_content3").innerText = headersArray
+  url = url.substring(0, url.length - 1)
+  console.log('url=====', url)
+  document.getElementById("request_content").innerText = method + ' ' + protocol
+  document.getElementById("request_content2").innerText = url
+  // document.getElementById("request_content3").innerText = headersArray
 }
-
-// module.exports = { buildRequest, construct }
