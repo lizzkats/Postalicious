@@ -25,11 +25,13 @@
   height: 100px;
   width: 200px;
 }
+
 .response-body-box {
   width: 50%;
-  height: 250px;
+  height: 350px;
 }
-.request-body-box{
+
+.request-body-box {
   width: 500px;
-  height: 250px;
+  height: 350px;
 }
