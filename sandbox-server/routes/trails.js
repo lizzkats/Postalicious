@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', (request, response) => {
+  console.log('request', request);
   response.set('content-type', 'text/plain')
     .send('Welcome to Sandbox!')
 })

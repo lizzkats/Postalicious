@@ -20,8 +20,8 @@
               </select>
             </div>
             <div class="row" style="width: 280px;">
-              <span class="host">Host</span>
-              <input type="text" class="host-input"></input>
+              <span class="host" >Host</span>
+              <input type="text" value="http://localhost:3000" class="host-input"></input>
             </div>
           </div>
           <div class="col-xs-2" style="width: 350px;">
@@ -43,14 +43,14 @@
             <span class="headers">Headers</span>
             <div class="row" style="width:400px;">
               <div class="col-xs-4" style="width:155px;">
-                <input type="text" id="header-key1" name="plebian" placeholder ="key"></input>
-                <input type="text" id="header-key2" name="plebian2" placeholder ="key"></input>
-                <input type="text" id="header-key3" name="plebian3" placeholder ="key"></input>
+                <input type="text" id="header-key1" name="plebian" value="content-type" placeholder ="key"></input>
+                <input type="text" id="header-key2" name="plebian2" value="Accept" placeholder ="key"></input>
+                <input type="text" id="header-key3" name="plebian3" value="Accept-Charset" placeholder ="key"></input>
               </div>
               <div class="col-xs-4" style="width:155px;">
-                <input type="text" id="header-value1" name="plebian4" placeholder ="value"></input>
-                <input type="text" id="value" name="plebian5" placeholder ="value"></input>
-                <input type="text" id="value" name="plebian6" placeholder ="value"></input>
+                <input type="text" id="header-value1" name="plebian4" value="text/plain" placeholder ="value"></input>
+                <input type="text" id="header-value2" name="plebian5" value="text/plain" placeholder ="value"></input>
+                <input type="text" id="header-value3" name="plebian6" value="utf-8" placeholder ="value"></input>
               </div>
             </div>
           </div>
@@ -81,7 +81,10 @@
             </div>
           </div>
           <div class="col-xs-6" style="width:560px;background-color:#0099ff;">
-            <div class="request-body-box" type="text"><div style="background-color:white; width:100%">RESPONSE</div>
+            <div class="request-body-box" type="text"><div style="background-color:white; width:100%">
+              RESPONSE
+              <div id="response-space"></div>
+            </div>
             </div>
           </div>
         </div>
