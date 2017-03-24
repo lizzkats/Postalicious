@@ -5,91 +5,96 @@
     <title>Postalicious</title>
     <link rel='stylesheet' href='../stylesheets/style.css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   </head>
   <body>
-    <form >
-    <div class="container-fluid">
-      <div class="title"> Postalicious </div>
-        <div class="container-fluid">
-          <div class="col-xs-3" style="width:300px;">
-            <div class="row" style="width: 280px;">
-              <span class="method">Method</span>
-              <select class="method-input">
-                <option value="GET">GET</option>
-                <option value="POST">POST</option>
-              </select>
-            </div>
-            <div class="row" style="width: 280px;">
-              <span class="host" >Host</span>
-              <input type="text" value="http://localhost:3000" class="host-input"></input>
-            </div>
-          </div>
-          <div class="col-xs-2" style="width: 350px;">
-            <span>Query Parameters</span>
-            <div class="row" style="width:400px;">
-              <div class="col-xs-4" style="width:155px;">
-                <input type="text" class="key" name="asshole" placeholder ="key"></input>
-                <input type="text" class="key" name="asshole" placeholder ="key"></input>
-                <input type="text" class="key" name="asshole" placeholder ="key"></input>
+    <div style="margin:auto;width:100%;text-align:center;">
+      <div class="container-fluid" style="padding-right: 0px;padding-left: 0px;margin-right: 0px;margin-left: 0px;">
+        <div class="title" style="font-size:3em;font-family:'Lobster', cursive;text-align:center;width:100.8%;"> Postalicious </div>
+          <div class="container-fluid">
+            <div class="col-xs-3" style="width:300px;">
+              <div class="row" style="width: 280px;">
+                <span class="method">Method</span>
+                <select class="method-input">
+                  <option value="GET">GET</option>
+                  <option value="POST">POST</option>
+                </select>
               </div>
-              <div class="col-xs-4" style="width:155px;">
-                <input type="text" class="value" name="asshole4" placeholder ="value"></input>
-                <input type="text" class="value" name="asshole5" placeholder ="value"></input>
-                <input type="text" class="value" name="asshole6" placeholder ="value"></input>
+              <div class="row" style="width: 280px;">
+                <span class="host" >Host</span>
+                <input type="text" value="http://localhost:3000" class="host-input"></input>
               </div>
             </div>
-          </div>
-          <div class="col-xs-3" style="width: 350px;">
-            <span class="headers">Headers</span>
-            <div class="row" style="width:400px;">
-              <div class="col-xs-4" style="width:155px;">
-                <input type="text" id="header-key1" name="plebian" value="content-type" placeholder ="key"></input>
-                <input type="text" id="header-key2" name="plebian2" value="Accept" placeholder ="key"></input>
-                <input type="text" id="header-key3" name="plebian3" value="Accept-Charset" placeholder ="key"></input>
-              </div>
-              <div class="col-xs-4" style="width:155px;">
-                <input type="text" id="header-value1" name="plebian4" value="text/plain" placeholder ="value"></input>
-                <input type="text" id="header-value2" name="plebian5" value="text/plain" placeholder ="value"></input>
-                <input type="text" id="header-value3" name="plebian6" value="utf-8" placeholder ="value"></input>
+            <div class="col-xs-2" style="width: 350px;">
+              <span>Query Parameters</span>
+              <div class="row" style="width:400px;">
+                <div class="col-xs-4" style="width:155px;">
+                  <input type="text" class="key" name="asshole" placeholder ="key"></input>
+                  <input type="text" class="key" name="asshole" placeholder ="key"></input>
+                  <input type="text" class="key" name="asshole" placeholder ="key"></input>
+                </div>
+                <div class="col-xs-4" style="width:155px;">
+                  <input type="text" class="value" name="asshole4" placeholder ="value"></input>
+                  <input type="text" class="value" name="asshole5" placeholder ="value"></input>
+                  <input type="text" class="value" name="asshole6" placeholder ="value"></input>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-xs-3">
+            <div class="col-xs-3" style="width: 350px;">
+              <span class="headers" style="">Headers</span>
+              <div class="row" style="width:400px;float">
+                <div class="col-xs-4" style="width:155px;">
+                  <input type="text" id="header-key1" name="plebian" value="content-type" placeholder ="key"></input>
+                  <input type="text" id="header-key2" name="plebian2" value="Accept" placeholder ="key"></input>
+                  <input type="text" id="header-key3" name="plebian3" value="Accept-Charset" placeholder ="key"></input>
+                </div>
+                <div class="col-xs-4" style="width:155px;">
+                  <input type="text" id="header-value1" name="plebian4" value="text/plain" placeholder ="value"></input>
+                  <input type="text" id="header-value2" name="plebian5" value="text/plain" placeholder ="value"></input>
+                  <input type="text" id="header-value3" name="plebian6" value="utf-8" placeholder ="value"></input>
+                </div>
+              </div>
+            </div>
+          <div class="col-xs-3" style="width:15%;float:right;">
             <span class="body">Body</span>
-            <input type="text" name="muppet-fart" class="body-box"></input>
+            <input type="text" id="request_body" name="muppet-fart" class="body-box"></input>
           </div>
         </div>
       </div>
-      <div class="container-fluid">
+      <div class="container-fluid" style="padding-right: 0px;padding-left: 0px;margin-right: 0px;margin-left: 0px;">
         <div class="row">
           <div class="build-button">
             <div class="col-xs-6" style="margin-left:890px;width:11%;">
-              <button class="build-send">Build &amp; Send </button>
+              <button onclick="construct(event)" class="build-send">Build &amp; Send </button>
             </div>
           </div>
-          <div class="request-button" style="display:inline-block;width:180px">
-            <button onclick="construct(event)" class="build-request">Build Request</button>
+          <div class="request-button" style="display:inline-block;width:180px;margin-left:55px;">
+            <button class="build-request">Build Request</button>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-6" style="width:30%;background-color:#00cc00;">
-            <div class="request-body-box" style="margin-right:0px;" type="text">
-              REQUEST
-              <div id="request_content"></div>
-              <div id="request_content2"></div>
-              <div id="request_content3"></div>
+          <div class="col-xs-6" style="width:51%;background-color:#00cc00;">
+            <div class="request-body-box" type="text"><div style="background-color:#009900; width:195.9%;font-weight:bolder;">
+                REQUEST
+                <div id="request-info">
+                  <div id="request_content"></div>
+                  <div id="request_content2"></div>
+                  <div id="request_content3"></div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-xs-6" style="width:560px;background-color:#0099ff;">
-            <div class="request-body-box" type="text"><div style="background-color:white; width:100%">
+          <div class="col-xs-6" style="width:49%;background-color:#0099ff;float:right">
+            <div class="request-body-box" type="text"><div style="background-color:#0066cc; width:183.2%;font-weight:bolder;">
               RESPONSE
-              <div id="response-space"></div>
             </div>
+            <div id="response-info2" style="height:23%;width:100%;text-align:left;margin-left:395px"></div>
+            <div id="response-info1" style="height:15%;width:100%;text-align:left;margin-left:395px"></div>
             </div>
           </div>
         </div>
       </div>
-    </form>
+    </div>
     <script type="text/javascript" src="methods.js"></script>
   </body>
 </html>
