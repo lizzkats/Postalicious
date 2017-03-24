@@ -1,7 +1,6 @@
 
 .title {
   background-color: grey;
-  width: 1267px;
 }
 
 .method-input, .host-input {
@@ -25,11 +24,8 @@
   height: 100px;
   width: 200px;
 }
-.response-body-box {
-  width: 50%;
-  height: 250px;
-}
-.request-body-box{
+
+.request-body-box, .response-body-box {
   width: 500px;
   height: 250px;
 }
