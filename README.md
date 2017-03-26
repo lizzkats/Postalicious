@@ -1,5 +1,5 @@
 # Postalicious
-A clone of the Postman chrome extension.
+A clone of the Postman app.
 
 ## Description
 See http://jsdev.learnersguild.org/goals/194-Postalicious-Demystifying_HTTP.html for description.
