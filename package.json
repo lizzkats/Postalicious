@@ -1,0 +1,34 @@
+{
+  "name": "postalicious",
+  "version": "1.0.0",
+  "description": "A clone of the Postman chrome extension.",
+  "main": "index.js",
+  "scripts": {
+    "sandbox-server": "nodemon sandbox-server/index",
+    "pl": "nodemon postalicious/index",
+    "test": "mocha sandbox-server/test/sandbox_tests.js",
+    "testTwo:": "mocha postalicious/test/post_tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lizzkats/Postalicious.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lizzkats/Postalicious/issues"
+  },
+  "homepage": "https://github.com/lizzkats/Postalicious#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "morgan": "^1.7.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "cors": "^2.8.1",
+    "mocha": "^3.2.0",
+    "pg-promise": "^5.6.4"
+  }
+}

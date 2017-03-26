@@ -1,0 +1,37 @@
+
+.title {
+  background-color: grey;
+  width: 1267px;
+}
+
+.method-input, .host-input {
+  margin-bottom: 10px;
+  width: 275px;
+  height: 30px;
+  background-color: lightgrey;
+}
+
+.build-request {
+  height: 35px;
+  width: 180px;
+}
+
+.build-send {
+  height: 35px;
+  width: 180px;
+}
+
+.body-box {
+  height: 100px;
+  width: 200px;
+}
+
+.response-body-box {
+  width: 50%;
+  height: 350px;
+}
+
+.request-body-box {
+  width: 500px;
+  height: 350px;
+}
